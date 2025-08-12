@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { motion } from "motion/react";
+import { TECH_STACKS, VIDEOS } from "@/constans";
 
 export default function Home() {
   return (
@@ -366,56 +367,7 @@ export default function Home() {
               CÔNG NGHỆ CHÍNH
             </p>
             <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
-              {[
-                {
-                  name: "HTML",
-                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
-                },
-                {
-                  name: "CSS",
-                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
-                },
-                {
-                  name: "JavaScript",
-                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
-                },
-                {
-                  name: "TypeScript",
-                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
-                },
-                {
-                  name: "React",
-                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
-                },
-                {
-                  name: "Next.js",
-                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
-                },
-                {
-                  name: "Express.js",
-                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg",
-                },
-                {
-                  name: "Nest.js",
-                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg",
-                },
-                {
-                  name: "TailwindCSS",
-                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
-                },
-                {
-                  name: "Node.js",
-                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
-                },
-                {
-                  name: "Figma",
-                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg",
-                },
-                {
-                  name: "Git",
-                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
-                },
-              ].map((tech, index) => (
+              {TECH_STACKS.map((tech, index) => (
                 <motion.div
                   key={tech.name}
                   className="group flex flex-col items-center space-y-2 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-amber-500/50 transition-all duration-300 hover:scale-105"
@@ -593,20 +545,7 @@ export default function Home() {
               </div>
 
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
-                {[
-                  {
-                    title: `Lorem ipsum dolor sit amet consectetur adipisicing elit`,
-                    status: "Coming Soon",
-                  },
-                  {
-                    title: `Lorem ipsum dolor sit amet consectetur adipisicing elit`,
-                    status: "Coming Soon",
-                  },
-                  {
-                    title: `Lorem ipsum dolor sit amet consectetur adipisicing elit`,
-                    status: "Coming Soon",
-                  },
-                ].map((video, index) => (
+                {VIDEOS.map((video, index) => (
                   <motion.div
                     key={index}
                     className="group relative bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-lime-500/50 transition-all duration-300 hover:scale-105"
