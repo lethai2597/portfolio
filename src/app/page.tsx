@@ -468,7 +468,7 @@ export default function Home() {
 
               {/* Social links */}
               <motion.div
-                className="flex justify-center gap-4 md:gap-6 mt-12 max-w-4xl mx-auto"
+                className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6 mt-12 max-w-4xl mx-auto px-4"
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -504,11 +504,11 @@ export default function Home() {
                     transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -5 }}
-                    className="w-full max-w-xs"
+                    className="w-full sm:max-w-xs"
                   >
                     <SpotlightCard
                       spotlightColor={platform.spotlightColor}
-                      className="p-6 md:p-8 bg-white/5 hover:bg-white/10 transition-all duration-300 cursor-pointer group"
+                      className="p-4 md:p-6 lg:p-8 bg-white/5 hover:bg-white/10 transition-all duration-300 cursor-pointer group"
                     >
                       <a
                         href={platform.href}
