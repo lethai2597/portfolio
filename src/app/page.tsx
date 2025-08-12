@@ -517,9 +517,6 @@ export default function Home() {
                           >
                             {platform.name}
                           </h3>
-                          <p className="text-white/60 text-sm">
-                            Theo dõi mình trên {platform.name}
-                          </p>
                         </div>
                       </a>
                     </SpotlightCard>
@@ -578,13 +575,13 @@ export default function Home() {
 
                       <div className="flex gap-2">
                         <div className="p-2 bg-pink-500/60 rounded-full text-white hover:bg-pink-500 transition-all duration-300 hover:scale-110 cursor-pointer">
-                          <Music className="w-3 h-3" />
+                          <Music className="w-5 h-5" />
                         </div>
                         <div className="p-2 bg-blue-500/60 rounded-full text-white hover:bg-blue-500 transition-all duration-300 hover:scale-110 cursor-pointer">
-                          <Youtube className="w-3 h-3" />
+                          <Youtube className="w-5 h-5" />
                         </div>
                         <div className="p-2 bg-red-500/60 rounded-full text-white hover:bg-red-500 transition-all duration-300 hover:scale-110 cursor-pointer">
-                          <Facebook className="w-3 h-3" />
+                          <Facebook className="w-5 h-5" />
                         </div>
                       </div>
                     </div>

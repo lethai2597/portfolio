@@ -62,4 +62,8 @@ export const VIDEOS = [
     title: `Lorem ipsum dolor sit amet consectetur adipisicing elit`,
     status: "Coming Soon",
   },
+  {
+    title: `Lorem ipsum dolor sit amet consectetur adipisicing elit`,
+    status: "Coming Soon",
+  },
 ];
