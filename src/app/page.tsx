@@ -55,12 +55,22 @@ export default function Home() {
             <button
               onClick={() =>
                 document
-                  .getElementById("about")
+                  .getElementById("developer")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
               className="hover:text-amber-400 transition-colors duration-200 cursor-pointer"
             >
-              About
+              Developer
+            </button>
+            <button
+              onClick={() =>
+                document
+                  .getElementById("creator")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="hover:text-amber-400 transition-colors duration-200 cursor-pointer"
+            >
+              Creator
             </button>
             <button
               onClick={() =>
@@ -200,7 +210,7 @@ export default function Home() {
             <button
               onClick={() =>
                 document
-                  .getElementById("about")
+                  .getElementById("developer")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
               className="bg-white text-black px-8 md:px-12 py-3 md:py-4 rounded-full font-medium cursor-pointer hover:scale-105 transition-transform duration-200"
@@ -212,7 +222,7 @@ export default function Home() {
       </section>
 
       <section
-        id="about"
+        id="developer"
         className="relative w-full min-h-screen flex items-center justify-center py-20 pt-32 overflow-hidden"
       >
         {/* Animated gradient background */}
@@ -400,7 +410,7 @@ export default function Home() {
       </section>
 
       <section
-        id="content"
+        id="creator"
         className="relative w-full min-h-screen py-20 pt-32 bg-gradient-to-b from-black via-gray-950 to-gray-900"
       >
         {/* Animated particles background */}
