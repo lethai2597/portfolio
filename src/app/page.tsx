@@ -104,7 +104,7 @@ export default function Home() {
         <div className="absolute w-full h-40 bottom-0 z-0 bg-gradient-to-b from-transparent to-gray-950"></div>
 
         <div className="absolute w-full h-3/5 md:h-4/6 bottom-0 z-0">
-          <div className="max-w-[1800px] mx-auto">
+          <div className="mx-auto">
             <motion.div
               className="mb-8 flex justify-center"
               initial={{ opacity: 0, visibility: "hidden" }}
@@ -112,11 +112,12 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
             >
               <CurvedLoop
-                marqueeText="Mình là Lê Huy Thái ✦ một Sortware Engineer mong muốn hoàn thiện bản thân ✦ muốn chia sẻ điều đó ✦ "
+                marqueeText="Mình là Lê Huy Thái ✦ Mình là một Sortware Engineer ✦ Mình mong muốn hoàn thiện bản thân ✦ Mình muốn chia sẻ nhiều thứ ✦ "
                 speed={2}
-                className="text-7xl md:text-5xl font-bold"
-                curveAmount={250}
-                direction="right"
+                className="text-7xl xl:text-2xl 2xl:text-xl font-bold"
+                curveAmount={150}
+                direction="left"
+                interactive={false}
               />
             </motion.div>
           </div>
