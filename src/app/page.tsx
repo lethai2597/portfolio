@@ -1,7 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import CircularText from "@/components/CircularText";
 import CurvedLoop from "@/components/CurvedLoop";
+import IntroBackground from "@/components/IntroBackground";
+import LoadingScreen from "@/components/LoadingScreen";
 import SquaresBackground from "@/components/SquaresBackground";
 import SpotlightCard from "@/components/SpotlightCard";
 import TextType from "@/components/TextType";
@@ -28,6 +31,16 @@ import { TECH_STACKS, VIDEOS } from "@/constans";
 import { ScrollRevealHTML } from "@/components/ScrollReveal";
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
+
+  if (isLoading) {
+    return <LoadingScreen onComplete={handleLoadingComplete} />;
+  }
+
   return (
     <div className="min-h-screen bg-gray-950 text-white/80 scroll-smooth">
       <motion.header
@@ -46,9 +59,9 @@ export default function Home() {
             className="flex gap-4 items-center hover:scale-105 transition-transform duration-200 cursor-pointer"
           >
             <Earth className="w-5 h-5" />
-            <div className="font-medium flex gap-1 text-white">
-              <div className="hidden md:block">Lê Huy </div>
-              Thái
+            <div className="font-bold flex gap-1 text-white">
+              <div className="hidden md:block">lehuythai.com</div>
+              <div className="md:hidden">Thái</div>
             </div>
           </button>
 
@@ -106,9 +119,15 @@ export default function Home() {
         <div className="relative z-10 text-center grid gap-8 p-4">
           <motion.div
             className="mb-8 flex justify-center"
-            initial={{ scale: 0.5, opacity: 0, visibility: "hidden" }}
-            animate={{ scale: 1, opacity: 1, visibility: "visible" }}
-            transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
+            initial={{ scale: 0.3, opacity: 0, rotateY: -90 }}
+            animate={{ scale: 1, opacity: 1, rotateY: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.3,
+              ease: [0.175, 0.885, 0.32, 1.275],
+              type: "spring",
+              stiffness: 100,
+            }}
           >
             <div className="relative">
               <TiltedCard
@@ -130,9 +149,15 @@ export default function Home() {
               <div className="absolute -bottom-12 -right-12 w-32 h-32">
                 <motion.div
                   className="mb-8 flex justify-center"
-                  initial={{ scale: 2, opacity: 0, visibility: "hidden" }}
-                  animate={{ scale: 1, opacity: 1, visibility: "visible" }}
-                  transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+                  initial={{ scale: 0, opacity: 0, rotate: -180 }}
+                  animate={{ scale: 1, opacity: 1, rotate: 0 }}
+                  transition={{
+                    duration: 1.2,
+                    delay: 0.8,
+                    ease: [0.68, -0.55, 0.265, 1.55],
+                    type: "spring",
+                    stiffness: 80,
+                  }}
                 >
                   <CircularText
                     text="CONTACT ✦ ME ✦ HERE ✦ "
@@ -157,9 +182,15 @@ export default function Home() {
 
           <motion.div
             className="text-center text-3xl md:text-4xl font-black md:flex md:gap-2"
-            initial={{ y: 50, opacity: 0, visibility: "hidden" }}
-            animate={{ y: 0, opacity: 1, visibility: "visible" }}
-            transition={{ duration: 0.5, delay: 1, ease: "easeOut" }}
+            initial={{ y: 100, opacity: 0, scale: 0.8 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.8,
+              delay: 1.2,
+              ease: [0.25, 0.46, 0.45, 0.94],
+              type: "spring",
+              stiffness: 120,
+            }}
           >
             <div className="mb-2 md:mb-0">XIN CHÀO, </div>
             <div>MÌNH LÀ THÁI</div>
@@ -168,9 +199,15 @@ export default function Home() {
           {/* amber-500, lime-500 */}
           <motion.div
             className="text-center text-3xl font-bold flex items-center justify-center"
-            initial={{ y: 50, opacity: 0, visibility: "hidden" }}
-            animate={{ y: 0, opacity: 1, visibility: "visible" }}
-            transition={{ duration: 0.5, delay: 1.5, ease: "easeOut" }}
+            initial={{ y: 80, opacity: 0, scale: 0.9 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.8,
+              delay: 1.8,
+              ease: [0.68, -0.55, 0.265, 1.55],
+              type: "spring",
+              stiffness: 100,
+            }}
           >
             <div className="hidden md:block">Mình là </div>
             <TextType
@@ -183,29 +220,39 @@ export default function Home() {
 
           <motion.div
             className="flex justify-center"
-            initial={{ y: 50, opacity: 0, visibility: "hidden" }}
-            animate={{ y: 0, opacity: 1, visibility: "visible" }}
-            transition={{ duration: 0.5, delay: 2, ease: "easeOut" }}
+            initial={{ y: 100, opacity: 0, scale: 0.5 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
+            transition={{
+              duration: 1.0,
+              delay: 2.5,
+              ease: [0.68, -0.55, 0.265, 1.55],
+              type: "spring",
+              stiffness: 150,
+            }}
           >
-            <button
+            <motion.button
               onClick={() =>
                 document
                   .getElementById("developer")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
               className="bg-white text-black px-8 md:px-12 py-3 md:py-4 rounded-full font-medium cursor-pointer hover:scale-105 transition-transform duration-200"
+              whileHover={{
+                scale: 1.05,
+                y: -2,
+                boxShadow:
+                  "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+              }}
+              whileTap={{ scale: 0.95 }}
             >
               Khám phá
-            </button>
+            </motion.button>
           </motion.div>
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-gray-950">
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-950 to-gray-900"></div> */}
-
-        {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(245,158,11,0.05)_0%,transparent_40%)]"></div> */}
-
+      <section className="relative overflow-hidden bg-gray-900">
+        <IntroBackground />
         <div className="relative z-10 max-w-6xl mx-auto px-4 py-10 md:py-20 xl:py-32">
           <ScrollRevealHTML
             baseOpacity={0.1}
@@ -214,10 +261,13 @@ export default function Home() {
             blurStrength={4}
             stagger={0.1}
           >
-            Mình là Lê Huy Thái. Mình là một Remote{" "}
-            <span className="text-amber-500">Software Engineer</span>. Mình muốn
-            hoàn thiện bản thân hơn mỗi ngày. Và mình muốn chia sẻ điều đó bằng
-            cách <span className="text-lime-500">Content Creator</span>.
+            Mình là Lê Huy Thái. Mình là một{" "}
+            <span className="text-amber-500">Remote</span>{" "}
+            <span className="text-amber-500">Software</span>{" "}
+            <span className="text-amber-500">Engineer</span>. Mình muốn hoàn
+            thiện bản thân hơn mỗi ngày. Và mình muốn chia sẻ điều đó bằng cách{" "}
+            <span className="text-lime-500">Content</span>{" "}
+            <span className="text-lime-500">Creator</span>.
           </ScrollRevealHTML>
         </div>
       </section>
@@ -301,7 +351,7 @@ export default function Home() {
               className="grid grid-cols-2 gap-4 md:gap-8"
               initial={{ x: 100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
               viewport={{ once: true }}
             >
               {[
@@ -340,7 +390,7 @@ export default function Home() {
                   initial={{ scale: 0, rotate: -180 }}
                   whileInView={{ scale: 1, rotate: 0 }}
                   transition={{
-                    duration: 0.6,
+                    duration: 0.5,
                     delay: index * 0.1,
                     type: "spring",
                     stiffness: 100,
@@ -559,7 +609,7 @@ export default function Home() {
                     className="group relative bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-lime-500/50 transition-all duration-300 hover:scale-105"
                     initial={{ scale: 0, rotate: 5 }}
                     whileInView={{ scale: 1, rotate: 0 }}
-                    transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
+                    transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -5 }}
                   >
