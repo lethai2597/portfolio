@@ -25,6 +25,7 @@ import {
 import Image from "next/image";
 import { motion } from "motion/react";
 import { TECH_STACKS, VIDEOS } from "@/constans";
+import { ScrollRevealHTML } from "@/components/ScrollReveal";
 
 export default function Home() {
   return (
@@ -88,39 +89,17 @@ export default function Home() {
 
       <section
         id="hero"
-        className="h-dvh flex items-center justify-center overflow-hidden"
+        className="h-dvh flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-950 to-black"
       >
         {/* Background */}
         <div className="absolute inset-0 z-0">
           <SquaresBackground
             direction="diagonal"
             speed={0.5}
-            borderColor="#333"
+            borderColor="#1f2937"
             squareSize={40}
-            hoverFillColor="#444"
+            hoverFillColor="#374151"
           />
-        </div>
-
-        <div className="absolute w-full h-40 bottom-0 z-0 bg-gradient-to-b from-transparent to-gray-950"></div>
-
-        <div className="absolute w-full h-3/5 md:h-4/6 bottom-0 z-0">
-          <div className="mx-auto">
-            <motion.div
-              className="mb-8 flex justify-center"
-              initial={{ opacity: 0, visibility: "hidden" }}
-              animate={{ opacity: 1, visibility: "visible" }}
-              transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-            >
-              <CurvedLoop
-                marqueeText="Mình là Lê Huy Thái ✦ Mình là một Sortware Engineer ✦ Mình mong muốn hoàn thiện bản thân ✦ Mình muốn chia sẻ nhiều thứ ✦ "
-                speed={2}
-                className="text-7xl xl:text-2xl 2xl:text-xl font-bold"
-                curveAmount={150}
-                direction="left"
-                interactive={false}
-              />
-            </motion.div>
-          </div>
         </div>
 
         {/* Content */}
@@ -219,6 +198,27 @@ export default function Home() {
               Khám phá
             </button>
           </motion.div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden bg-gray-950">
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-950 to-gray-900"></div> */}
+
+        {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(245,158,11,0.05)_0%,transparent_40%)]"></div> */}
+
+        <div className="relative z-10 max-w-6xl mx-auto px-4 py-10 md:py-20 xl:py-32">
+          <ScrollRevealHTML
+            baseOpacity={0.1}
+            enableBlur={true}
+            baseRotation={5}
+            blurStrength={4}
+            stagger={0.1}
+          >
+            Mình là Lê Huy Thái. Mình là một Remote{" "}
+            <span className="text-amber-500">Software Engineer</span>. Mình muốn
+            hoàn thiện bản thân hơn mỗi ngày. Và mình muốn chia sẻ điều đó bằng
+            cách <span className="text-lime-500">Content Creator</span>.
+          </ScrollRevealHTML>
         </div>
       </section>
 
