@@ -283,7 +283,6 @@ export const ScrollRevealHTML: React.FC<ScrollRevealProps> = ({
     
     // Nếu là array hoặc ReactNode phức tạp, tách theo từng phần
     const textParts: React.ReactNode[] = [];
-    let currentText = '';
     
     // Hàm đệ quy để xử lý ReactNode
     const processNode = (node: React.ReactNode, key: string) => {
