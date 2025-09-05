@@ -5,10 +5,10 @@ import TiltedCard from "@/components/TiltedCard";
 import { Youtube } from "lucide-react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { motion } from "motion/react";
 
-export default function Countdown() {
+function CountdownContent() {
   const searchParams = useSearchParams();
   const countToParam = searchParams.get('countTo');
   const [timeLeft, setTimeLeft] = useState<{ minutes: number; seconds: number } | null>(null);
@@ -237,5 +237,17 @@ export default function Countdown() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Countdown() {
+  return (
+    <Suspense fallback={
+      <div className="h-screen w-screen flex items-center justify-center relative bg-gray-950">
+        <div className="text-white text-xl">Đang tải...</div>
+      </div>
+    }>
+      <CountdownContent />
+    </Suspense>
   );
 }
