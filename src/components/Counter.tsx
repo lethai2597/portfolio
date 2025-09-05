@@ -155,18 +155,6 @@ export default function Counter({
           />
         ))}
       </div>
-      <div style={gradientContainerStyle}>
-        <div
-          style={topGradientStyle ? topGradientStyle : defaultTopGradientStyle}
-        />
-        <div
-          style={
-            bottomGradientStyle
-              ? bottomGradientStyle
-              : defaultBottomGradientStyle
-          }
-        />
-      </div>
     </div>
   );
 }
