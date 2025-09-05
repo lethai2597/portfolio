@@ -1,7 +1,6 @@
 "use client";
 
 import SquaresBackground from "@/components/SquaresBackground";
-import TiltedCard from "@/components/TiltedCard";
 import Counter from "@/components/Counter";
 import { Youtube } from "lucide-react";
 import Image from "next/image";
@@ -73,19 +72,6 @@ function CountdownContent() {
     return () => clearInterval(interval);
   }, [countToParam]);
 
-  const formatTime = () => {
-    if (!timeLeft) return "Đang tải...";
-
-    if (isEnded) {
-      return "Sẽ sớm bắt đầu";
-    }
-
-    if (timeLeft.minutes === 0) {
-      return `${timeLeft.seconds} giây`;
-    }
-
-    return `${timeLeft.minutes} phút, ${timeLeft.seconds} giây`;
-  };
 
   return (
     <div className="h-screen w-screen flex items-center justify-center relative bg-gray-950">
