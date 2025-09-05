@@ -2,6 +2,7 @@
 
 import SquaresBackground from "@/components/SquaresBackground";
 import TiltedCard from "@/components/TiltedCard";
+import Counter from "@/components/Counter";
 import { Youtube } from "lucide-react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
@@ -10,8 +11,11 @@ import { motion } from "motion/react";
 
 function CountdownContent() {
   const searchParams = useSearchParams();
-  const countToParam = searchParams.get('countTo');
-  const [timeLeft, setTimeLeft] = useState<{ minutes: number; seconds: number } | null>(null);
+  const countToParam = searchParams.get("countTo");
+  const [timeLeft, setTimeLeft] = useState<{
+    minutes: number;
+    seconds: number;
+  } | null>(null);
   const [isEnded, setIsEnded] = useState(false);
 
   useEffect(() => {
@@ -25,13 +29,13 @@ function CountdownContent() {
     const parseCountToTime = (timeString: string): Date | null => {
       try {
         // Format: hh:mm-dd/mm/yyyy
-        const [timePart, datePart] = timeString.split('-');
-        const [hours, minutes] = timePart.split(':').map(Number);
-        const [day, month, year] = datePart.split('/').map(Number);
-        
+        const [timePart, datePart] = timeString.split("-");
+        const [hours, minutes] = timePart.split(":").map(Number);
+        const [day, month, year] = datePart.split("/").map(Number);
+
         return new Date(year, month - 1, day, hours, minutes, 0);
       } catch (error) {
-        console.error('Invalid time format:', error);
+        console.error("Invalid time format:", error);
         return null;
       }
     };
@@ -71,7 +75,7 @@ function CountdownContent() {
 
   const formatTime = () => {
     if (!timeLeft) return "Đang tải...";
-    
+
     if (isEnded) {
       return "Sẽ sớm bắt đầu";
     }
@@ -110,7 +114,7 @@ function CountdownContent() {
 
           {/* Decorative blobs around avatar */}
           {/* Cyan circles */}
-          <motion.div 
+          <motion.div
             className="absolute -top-0 right-6 w-4 h-4 bg-cyan-400 rounded-full z-20"
             animate={{
               y: [0, -8, 0],
@@ -121,8 +125,8 @@ function CountdownContent() {
               ease: "easeInOut",
             }}
           ></motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="absolute -bottom-0 right-10 w-6 h-6 bg-cyan-400 rounded-full z-20"
             animate={{
               y: [0, -8, 0],
@@ -133,8 +137,8 @@ function CountdownContent() {
               ease: "easeInOut",
             }}
           ></motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="absolute -top-0 right-16 w-8 h-8 bg-cyan-400 rounded-full z-20"
             animate={{
               y: [0, -8, 0],
@@ -147,7 +151,7 @@ function CountdownContent() {
           ></motion.div>
 
           {/* Orange circle */}
-          <motion.div 
+          <motion.div
             className="absolute top-4 left-12 w-8 h-8 bg-orange-400 rounded-full z-20"
             animate={{
               y: [0, -8, 0],
@@ -160,7 +164,7 @@ function CountdownContent() {
           ></motion.div>
 
           {/* White circles */}
-          <motion.div 
+          <motion.div
             className="absolute bottom-8 left-4 w-6 h-6 bg-white rounded-full z-20"
             animate={{
               y: [0, -8, 0],
@@ -171,8 +175,8 @@ function CountdownContent() {
               ease: "easeInOut",
             }}
           ></motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="absolute top-1/2 -right-4 w-10 h-10 bg-white rounded-full z-20"
             animate={{
               y: [0, -8, 0],
@@ -185,8 +189,8 @@ function CountdownContent() {
           ></motion.div>
 
           {/* Pink/magenta rounded rectangles over the avatar */}
-          <motion.div 
-            className="absolute top-16 -left-4 w-32 h-8 bg-pink-500 rounded-full z-30"
+          <motion.div
+            className="absolute top-16 -left-4 w-32 h-8 bg-pink-500/70 rounded-full z-30"
             animate={{
               y: [0, -8, 0],
             }}
@@ -196,9 +200,9 @@ function CountdownContent() {
               ease: "easeInOut",
             }}
           ></motion.div>
-          
-          <motion.div 
-            className="absolute bottom-20 -right-4 w-28 h-6 bg-pink-500 rounded-full z-30"
+
+          <motion.div
+            className="absolute bottom-20 -right-4 w-28 h-6 bg-pink-500/70 rounded-full z-30"
             animate={{
               y: [0, -8, 0],
             }}
@@ -208,9 +212,9 @@ function CountdownContent() {
               ease: "easeInOut",
             }}
           ></motion.div>
-          
-          <motion.div 
-            className="absolute bottom-16 -right-2 w-20 h-2 bg-pink-500 rounded-full z-30"
+
+          <motion.div
+            className="absolute bottom-16 -right-2 w-20 h-2 bg-pink-500/70 rounded-full z-30"
             animate={{
               y: [0, -8, 0],
             }}
@@ -222,7 +226,7 @@ function CountdownContent() {
           ></motion.div>
         </div>
         <div className="grid gap-4">
-          <div className="flex mb-4">
+          <div className="flex mb-4 justify-center">
             <div className="flex items-center gap-2 bg-white px-3 py-0.5 rounded-full text-black">
               <Youtube className="w-8 h-8 text-red-500" />
               <div className="text-sm font-bold italic">/ @lehuythaidotcom</div>
@@ -230,10 +234,55 @@ function CountdownContent() {
           </div>
           <div className="text-5xl font-bold text-orange-500">LIVESTREAM</div>
           <div className="text-3xl font-bold">CODING, CHÉM GIÓ</div>
-          <div className="text-2xl font-bold">Review thử CV của mình</div>
-          <div className="text-2xl font-bold text-orange-500">
-            {isEnded ? "Sẽ sớm bắt đầu" : `Bắt đầu sau ${formatTime()}`}
-          </div>
+          <div className="text-2xl font-bold mb-4">Review thử CV của mình</div>
+
+          {isEnded ? (
+            <div className="text-2xl font-bold text-orange-500">
+              Sẽ sớm bắt đầu
+            </div>
+          ) : timeLeft ? (
+            <div className="flex flex-col items-center gap-4">
+              <div className="flex items-center gap-4">
+                <div className="flex flex-col items-center">
+                  <Counter
+                    value={timeLeft.minutes}
+                    fontSize={50}
+                    places={[10, 1]}
+                    textColor="#f97316"
+                    fontWeight="bold"
+                    containerStyle={{
+                      borderRadius: "12px",
+                    }}
+                  />
+                  <div className="text-sm font-semibold text-orange-400 mt-2">
+                    PHÚT
+                  </div>
+                </div>
+
+                <div className="text-4xl font-bold text-orange-500">:</div>
+
+                <div className="flex flex-col items-center">
+                  <Counter
+                    value={timeLeft.seconds}
+                    fontSize={50}
+                    places={[10, 1]}
+                    textColor="#f97316"
+                    fontWeight="bold"
+                    containerStyle={{
+                      borderRadius: "12px",
+                    }}
+                  />
+                  <div className="text-sm font-semibold text-orange-400 mt-2">
+                    GIÂY
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="text-2xl font-bold text-orange-500">
+              Đang tải...
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -242,11 +291,13 @@ function CountdownContent() {
 
 export default function Countdown() {
   return (
-    <Suspense fallback={
-      <div className="h-screen w-screen flex items-center justify-center relative bg-gray-950">
-        <div className="text-white text-xl">Đang tải...</div>
-      </div>
-    }>
+    <Suspense
+      fallback={
+        <div className="h-screen w-screen flex items-center justify-center relative bg-gray-950">
+          <div className="text-white text-xl">Đang tải...</div>
+        </div>
+      }
+    >
       <CountdownContent />
     </Suspense>
   );
